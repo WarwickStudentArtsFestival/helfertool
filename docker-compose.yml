@@ -33,7 +33,7 @@ services:
         - helfertool
 
   helfertool:
-    image: helfertool/helfertool
+    image: ghcr.io/warwickstudentartsfestival/helfertool:main
     container_name: helfertool
     ports:
       - "8000:8000"

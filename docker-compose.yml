@@ -1,0 +1,63 @@
+# Reference docs: https://docs.docker.com/compose/compose-file/compose-file-v3/
+# Docker Engine
+# Database: PostgreSQL (recommended), MySQL, MariaDB or SQLite
+# RabbitMQ
+# Reverse proxy: nginx (recommended), Apache or other suitable software
+# Mail server to send out mails
+
+services:
+
+  db:
+    container_name: db
+    image: postgres:latest
+    init: true
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_PASSWORD=helfertool
+      - POSTGRES_USER=helfertool
+      - POSTGRES_DB=helfertool
+    networks:
+        - helfertool
+
+  # RabbitMQ
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management-alpine
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - rabbitmq_data:/var/lib/rabbitmq/
+    networks:
+        - helfertool
+
+  helfertool:
+    image: helfertool/helfertool
+    container_name: helfertool
+    ports:
+      - "8000:8000"
+    user: "102"
+    group_add:
+      - "109"
+    read_only: true
+    volumes:
+      - /srv/helfertool:/data
+      - /etc/helfertool:/config
+      - /var/log/helfertool:/log
+    tmpfs:
+      - /helfertool/run
+    restart: "no"
+    networks:
+        - helfertool
+    depends_on:
+      - db
+      - rabbitmq
+
+
+networks:
+  helfertool:
+
+volumes:
+  postgres_data:
+  rabbitmq_data:

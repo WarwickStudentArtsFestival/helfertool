@@ -122,7 +122,7 @@ msgstr ""
 #: news/templates/news/mail/newsletter_preface.txt:2
 msgid ""
 "\n"
-"Hello dear helpers,\n"
+"Hi volunteers,\n"
 msgstr ""
 "\n"
 "Hallo liebe Helfer:innen,\n"

@@ -75,7 +75,7 @@ class Helper(models.Model):
     NUTRITION_OTHER = "OTHER"
 
     NUTRITION_CHOICES = (
-        (NUTRITION_NO_PREFERENCE, _("No preference")),
+        (NUTRITION_NO_PREFERENCE, _("None")),
         # Translators: adjective
         (NUTRITION_VEGETARIAN, _("Vegetarian")),
         (NUTRITION_VEGAN, _("Vegan")),
@@ -83,7 +83,7 @@ class Helper(models.Model):
     )
 
     NUTRITION_CHOICES_SHORT = (
-        (NUTRITION_NO_PREFERENCE, _("No preference")),
+        (NUTRITION_NO_PREFERENCE, _("N/A")),
         # Translators: adjective
         (NUTRITION_VEGETARIAN, _("Vegetarian")),
         (NUTRITION_VEGAN, _("Vegan")),
@@ -147,8 +147,8 @@ class Helper(models.Model):
         max_length=20,
         choices=NUTRITION_CHOICES,
         default=NUTRITION_NO_PREFERENCE,
-        verbose_name=_("Nutrition"),
-        help_text=_("This helps us estimating the food for our helpers."),
+        verbose_name=_("Dietary Requirements"),
+        help_text=_("This helps us estimating food for our helpers."),
     )
 
     infection_instruction = models.CharField(
@@ -274,7 +274,7 @@ class Helper(models.Model):
         mail = EmailMessage(
             subject,
             text,
-            settings.EMAIL_SENDER_ADDRESS,
+            f"\"{settings.EMAIL_SENDER_NAME}\" <{settings.EMAIL_SENDER_ADDRESS}>",
             [
                 self.email,
             ],  # to

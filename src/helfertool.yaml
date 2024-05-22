@@ -13,22 +13,22 @@ files:
 # Possible values: de, en
 language:
     # Default language if not specified by the browser
-    default: "de"
+    default: "en"
 
     # Language used for badges
-    badges: "de"
+    badges: "en"
 
     # Timezone
-    timezone: "Europe/Berlin"
+    timezone: "Europe/London"
 
     # Default country for Corona contact tracing (ISO-3166-1)
-    country: "DE"
+    country: "GB"
 
 # Database connection
 database:
     # SQLite
-    backend: "sqlite3"
-    name: "db.sqlite3"
+    # backend: "sqlite3"
+    # name: "db.sqlite3"
 
     # MySQL
     #backend: "mysql"
@@ -39,12 +39,12 @@ database:
     #port: 3306
 
     # PostgreSQL
-    #backend: "postgresql"
-    #name: "helfertool"
-    #user: "helfertool"
-    #password: "<PASSWORD>"
-    #host: 127.0.0.1
-    #port: 5432
+    backend: "postgresql"
+    name: "helfertool"
+    user: "helfertool"
+    password: "helfertool"
+    host: 127.0.0.1
+    port: 5432
 
     # Additional options like an init_command
     # Refer to the Django documentation for further options

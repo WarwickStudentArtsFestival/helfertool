@@ -1,6 +1,6 @@
 {% load i18n %}{% blocktrans with firstname=user.firstname|safe %}Hello {{ firstname }},
 
-you registered for the following shifts:{% endblocktrans %}
+You have registered for the following shifts:{% endblocktrans %}
 {% for shift in user.shifts.all %}
  * {{ shift|safe }}
 {% endfor %}

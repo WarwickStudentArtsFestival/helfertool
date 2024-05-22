@@ -91,12 +91,12 @@ class Event(models.Model):
         (SHIRT_XL, _("XL")),
         (SHIRT_XXL, _("XXL")),
         (SHIRT_3XL, _("3XL")),
-        (SHIRT_XS_GIRLY, _("XS (girly)")),
-        (SHIRT_S_GIRLY, _("S (girly)")),
-        (SHIRT_M_GIRLY, _("M (girly)")),
-        (SHIRT_L_GIRLY, _("L (girly)")),
-        (SHIRT_XL_GIRLY, _("XL (girly)")),
-        (SHIRT_XXL_GIRLY, _("XXL (girly)")),
+        (SHIRT_XS_GIRLY, _("XS (womens)")),
+        (SHIRT_S_GIRLY, _("S (womens)")),
+        (SHIRT_M_GIRLY, _("M (womens)")),
+        (SHIRT_L_GIRLY, _("L (womens)")),
+        (SHIRT_XL_GIRLY, _("XL (womens)")),
+        (SHIRT_XXL_GIRLY, _("XXL (womens)")),
     )
 
     SHIRT_CHOICES_DEFAULTS = (

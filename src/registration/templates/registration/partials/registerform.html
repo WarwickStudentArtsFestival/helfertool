@@ -78,7 +78,9 @@
         </div>
     {% endif %}
 
-    <button type="submit" class="btn btn-outline-primary">{% icon "save" %} {% trans "Register" %}</button>
+    <button type="submit" class="btn btn-outline-primary" onclick="this.disabled=true,this.form.submit();">
+        {% icon "save" %} {% trans "Register" %}
+    </button>
 
     <script src="{% static "registration/js/form.js" %}"></script>
 </form>

@@ -78,7 +78,7 @@ class ShiftTableNode(template.Node):
 
         # put it together with date
         template = '<div class="shifttable-day"><div class="shifttable-date">{}</div>{}</div>'
-        day_str = date(day)
+        day_str = date(day, "l jS F Y")  # e.g. "Monday 1st January 2024"
         return template.format(day_str, "".join(shifts_html))
 
     def _render_shift(self, context, shift):
